@@ -1,0 +1,29 @@
+- name: "Deploy MemberSite DEV"
+  hosts: "DEV"
+  serial: 1
+  tasks:
+      - name: "Down {{ Version }} to target machine"
+        win_get_url:
+          url: "http://13.213.82.69:8081/repository/artifacts/AdminSite/{{ Version }}.zip"
+          dest: "E:\\deploy temp\\{{ site }}.zip"
+
+      - name: "Stop Application Pool - {{ site }}"
+        win_iis_webapppool:
+          name: "{{ site }}"
+          state: "stopped"
+
+      - name: "Clean Artifact E:\\membersite"
+        win_file:
+          dest: "E:\\membersite"
+          state: absent
+
+      - name: "Deploy {{ site }} Package"
+        win_unzip:
+          src: "E:\\deploy temp\\{{ site }}.zip"
+          dest: "E:\\membersite"
+          delete_archive: True
+
+      - name: "Start Application Pool - {{ site }}"
+        win_iis_webapppool:
+          name: "{{ site }}"
+          state: "started"
