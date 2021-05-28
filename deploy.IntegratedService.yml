@@ -2,15 +2,13 @@
   hosts: "DEV"
   serial: 1
   tasks:
-      - name: "Down {{ Version }} to target machine"
+      - name: "Download {{ Version }} to target machine"
         win_get_url:
           url: "http://13.213.82.69:8081/repository/artifacts/IntegratedService/{{ site }}-{{ Version }}.zip"
           dest: "E:\\deploy temp\\{{ site }}.zip"
 
       - name: Stop  Service - {{ site }}
-        win_service:
-          name: "{{ site }}"
-          state: stopped
+        win_command: "taskkill /f /im {{ site }}.exe"
 
       - name: "Clean Artifact E:\\{{ site }}"
         win_file:
@@ -23,7 +21,8 @@
           dest: "E:\\{{ site }}"
           delete_archive: True
 
+      - name: "GO to  {{ site }}"
+        win_command: "cd E:\\{{ site }}"
+      
       - name: "Start service - {{ site }}"
-        win_service:
-          name: "{{ site }}"
-          state: "started"
+        win_command: "{{ site }}.exe"
