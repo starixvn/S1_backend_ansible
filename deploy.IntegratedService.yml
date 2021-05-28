@@ -1,15 +1,15 @@
-- name: "Deploy DEV IntegratedService - {{ Project }} "
+- name: "Deploy DEV IntegratedService - {{ site }} "
   hosts: "DEV"
   serial: 1
   tasks:
       - name: "Down {{ Version }} to target machine"
         win_get_url:
-          url: "http://13.213.82.69:8081/repository/artifacts/IntegratedService/{{ Project }}-{{ Version }}.zip"
+          url: "http://13.213.82.69:8081/repository/artifacts/IntegratedService/{{ site }}-{{ Version }}.zip"
           dest: "E:\\deploy temp\\{{ site }}.zip"
 
       - name: Stop  Service - {{ site }}
         win_service:
-          name: {{ site }}
+          name: "{{ site }}"
           state: stopped
 
       - name: "Clean Artifact E:\\{{ site }}"
