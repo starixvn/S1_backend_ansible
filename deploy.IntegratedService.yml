@@ -22,7 +22,7 @@
           delete_archive: True
 
       - name: "GO to  {{ site }}"
-        win_command: "cd \\E E:\\{{ site }}"
+        win_command: "cd /E E:/{{ site }}"
       
       - name: "Start service - {{ site }}"
         win_command: "{{ site }}.exe"
