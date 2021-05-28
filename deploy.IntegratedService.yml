@@ -21,8 +21,11 @@
           dest: "E:\\{{ site }}"
           delete_archive: True
 
+      - name: "E:"
+        win_command: "E:"
+
       - name: "GO to  {{ site }}"
-        win_command: "cd /d E:/{{ site }}"
+        win_command: "cd E:\\{{ site }}"
       
       - name: "Start service - {{ site }}"
         win_command: "{{ site }}.exe"
