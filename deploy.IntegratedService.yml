@@ -1,0 +1,29 @@
+- name: "Deploy DEV IntegratedService - {{ Project }} "
+  hosts: "DEV"
+  serial: 1
+  tasks:
+      - name: "Down {{ Version }} to target machine"
+        win_get_url:
+          url: "http://13.213.82.69:8081/repository/artifacts/IntegratedService/{{ Project }}-{{ Version }}.zip"
+          dest: "E:\\deploy temp\\{{ site }}.zip"
+
+      - name: Stop  Service - {{ site }}
+        win_service:
+          name: {{ site }}
+          state: stopped
+
+      - name: "Clean Artifact E:\\{{ site }}"
+        win_file:
+          dest: "E:\\{{ site }}"
+          state: absent
+
+      - name: "Deploy {{ site }} Package"
+        win_unzip:
+          src: "E:\\deploy temp\\{{ site }}.zip"
+          dest: "E:\\{{ site }}"
+          delete_archive: True
+
+      - name: "Start service - {{ site }}"
+        win_service:
+          name: "{{ site }}"
+          state: "started"
