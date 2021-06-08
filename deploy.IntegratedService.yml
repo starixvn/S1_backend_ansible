@@ -8,7 +8,7 @@
           dest: "E:\\deploy temp\\{{ site }}.zip"
 
       - name: Stop  Service - {{ site }}
-        win_shell: Stop-Process -Name {{ site }}
+        win_command: "taskkill /f /im {{ site }}.exe"
 
       - name: "Clean Artifact E:\\{{ site }}"
         win_file:
@@ -21,7 +21,10 @@
           dest: "E:\\{{ site }}"
           delete_archive: True
 
-      - name: Start Service - {{ site }} 
-        win_shell: "Start-Process {{ site }}.exe"
+      - name: Start Service - {{ site }}
+        win_command: "cmd \/c start  {{ site }}.exe"
         args:
-          chdir: E:\\{{ site }}
+            chdir: "E:\\{{ site }}"
+        async: 10
+        poll: 0
+
