@@ -8,7 +8,7 @@
           dest: "E:\\deploy temp\\{{ site }}.zip"
 
       - name: Stop  Service - {{ site }}
-        win_command: "taskkill /f /im {{ site }}.exe"
+        win_command: "taskkill /f /im /t {{ site }}.exe"
 
       - name: "Clean Artifact E:\\{{ site }}"
         win_file:
