@@ -1,0 +1,27 @@
+dev:
+  vars:
+    ansible_ssh_port: 5986
+    ansible_connection: winrm
+    ansible_password: "D!S@RfyoyHI;7IJKqLK7DviAE8DRfVqw"
+    ansible_ssh_user: "Administrator"
+    ansible_winrm_transport: credssp
+    ansible_winrm_scheme: https
+    ansible_winrm_server_cert_validation: ignore
+  children:
+    Backend:
+      hosts:
+        Backend:
+          ansible_host: 10.101.5.161
+          dest_path: "E:\\BackOffice"
+    MemberSite:
+      hosts:
+        MemberSite:
+          ansible_host: 10.101.6.161
+          dest_path: "E:\\membersite"
+    
+
+    
+    
+
+
+          
