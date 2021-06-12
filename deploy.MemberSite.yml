@@ -4,7 +4,7 @@
   tasks:
       - name: "Down {{ Version }} to target machine"
         win_get_url:
-          url: "http://13.213.82.69:8081/repository/artifacts/AdminSite/{{ Version }}.zip"
+          url: "http://13.213.82.69:8081/repository/artifacts/MemberSite/{{ Version }}.zip"
           dest: "E:\\deploy temp\\{{ site }}.zip"
 
       - name: "Stop Application Pool - {{ site }}"
