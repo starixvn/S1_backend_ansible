@@ -10,18 +10,11 @@ dev:
   children:
     Backend:
       hosts:
-        Backend:
-          ansible_host: 10.101.5.161
+        Backend-01:
+          ansible_host: 52.77.157.115
           dest_path: "E:\\BackOffice"
     MemberSite:
       hosts:
-        MemberSite:
-          ansible_host: 10.101.6.161
+        MemberSite-01:
+          ansible_host: 52.77.157.115
           dest_path: "E:\\membersite"
-    
-
-    
-    
-
-
-          
