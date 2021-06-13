@@ -4,11 +4,16 @@
   tasks:
       - name: "Down {{ Version }} to target machine"
         win_get_url:
-          url: "http://13.213.82.69:8081/repository/artifacts/{{ pack }}/{{ pack }}-{{ Version }}.zip"
+          url: "http://13.213.82.69:8081/repository/artifacts/{{ proj }}/{{ pack }}-{{ Version }}.zip"
           dest: "E:\\deploy temp\\{{ site }}.zip"
 
-      - name: Stop Service - {{ site }}
+      - name: Check Task
+        win_command: tasklist |find /i "{{ site }}.exe"
+        register: taskId
+
+      - name: Stop  Service - {{ site }}
         win_command: "taskkill /f /t /im {{ site }}.exe"
+        when: taskId.stderr != ""
 
       - name: "Clean Artifact E:\\{{ dest_path }}"
         win_file:
