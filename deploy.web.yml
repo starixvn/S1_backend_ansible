@@ -1,6 +1,8 @@
 - name: "Deploy {{ site }}"
   hosts: "{{ host }}"
   serial: 1
+  vars:
+    sitename: "{{ site }}"
   tasks:
       - name: "Down {{ Version }} to target machine"
         win_get_url:
@@ -25,11 +27,11 @@
       
       - name: "Delete {{ site }} appsettings.Development.json"
         win_shell: Remove-Item E:\membersiteapp\appsettings.Development.json
-        when: {{ site }} == "MemberApp"
+        when: sitename == "MemberApp"
       
       - name: "Rename {{ site }} appsettings.Development.APP.json"
         win_shell: Rename-Item E:\membersiteapp\appsettings.Development.APP.json appsettings.Development.json
-        when: {{ site }} == "MemberApp"
+        when: sitename == "MemberApp"
 
       - name: "Start Application Pool - {{ site }}"
         win_iis_webapppool:
