@@ -23,3 +23,8 @@ dev:
         MemberApp-01:
           ansible_host: 52.77.157.115
           dest_path: "E:\\membersiteapp"
+    ArchiveService:
+      hosts:
+        ArchiveService-01:
+          ansible_host: 52.77.157.115
+          dest_path: "E:\\ArchiveService"
