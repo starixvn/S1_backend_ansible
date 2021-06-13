@@ -25,11 +25,11 @@
       
       - name: "Delete {{ site }} appsettings.Development.json"
         win_shell: Remove-Item E:\membersiteapp\appsettings.Development.json
-        when: "{{ site }}" == "MemberApp"
+        when: {{ site }} == "MemberApp"
       
       - name: "Rename {{ site }} appsettings.Development.APP.json"
         win_shell: Rename-Item E:\membersiteapp\appsettings.Development.APP.json appsettings.Development.json
-        when: "{{ site }}" == "MemberApp"
+        when: {{ site }} == "MemberApp"
 
       - name: "Start Application Pool - {{ site }}"
         win_iis_webapppool:
