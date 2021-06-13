@@ -1,0 +1,30 @@
+- name: "Deploy DEV ArchiveService - {{ site }}-{{ Version }} "
+  hosts: "DEV"
+  serial: 1
+  tasks:
+      - name: "Download {{ Version }} to target machine"
+        win_get_url:
+          url: "http://13.213.82.69:8081/repository/artifacts/ArchiveService/{{ site }}-{{ Version }}.zip"
+          dest: "E:\\deploy temp\\{{ site }}.zip"
+
+      - name: Stop  Service - {{ site }}
+        win_command: "taskkill /f /t /im {{ site }}.exe"
+
+      - name: "Clean Artifact E:\\{{ site }}"
+        win_file:
+          dest: "E:\\{{ site }}"
+          state: absent
+
+      - name: "Deploy {{ site }} Package"
+        win_unzip:
+          src: "E:\\deploy temp\\{{ site }}.zip"
+          dest: "E:\\{{ site }}"
+          delete_archive: True
+
+      - name: Start Service - {{ site }}
+        win_command: "cmd \/c start  {{ site }}.exe"
+        args:
+            chdir: "E:\\{{ site }}"
+        async: 10
+        poll: 0
+
