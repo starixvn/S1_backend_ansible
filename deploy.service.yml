@@ -1,6 +1,8 @@
 - name: "Deploy {{ site }}"
   hosts: "{{ host }}"
   serial: 1
+  vars:
+    process_name: "{{ site }}.exe"
   tasks:
       - name: "Down {{ Version }} to target machine"
         win_get_url:
@@ -8,7 +10,7 @@
           dest: "E:\\deploy temp\\{{ site }}.zip"
 
       - name: Check Task
-        win_command: tasklist ^| find /i "{{ site }}.exe"
+        win_command: tasklist | find /i "process_name"
         args:
           executable: cmd.exe
         register: taskId
