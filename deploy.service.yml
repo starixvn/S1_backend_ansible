@@ -10,7 +10,7 @@
           dest: "E:\\deploy temp\\{{ site }}.zip"
 
       - name: Check Task
-        community.general.pids:
+        pids:
           name: process_name
         register: taskId
       
