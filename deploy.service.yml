@@ -8,7 +8,9 @@
           dest: "E:\\deploy temp\\{{ site }}.zip"
 
       - name: Check Task
-        win_command: tasklist /FI "IMAGENAME eq {{ site }}.exe"
+        win_command: tasklist | find /i "{{ site }}.exe"
+        args:
+          executable: cmd.exe
         register: taskId
 
       - name: Stop  Service - {{ site }}
