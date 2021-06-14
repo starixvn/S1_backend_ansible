@@ -11,10 +11,7 @@
 
       - name: Check Task
         community.general.pids:
-        name: process_name
-        # win_command: tasklist | find /i "process_name"
-        # args:
-        #   executable: cmd.exe
+          name: process_name
         register: taskId
       
       - debug:
