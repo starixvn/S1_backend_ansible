@@ -10,14 +10,20 @@
           dest: "E:\\deploy temp\\{{ site }}.zip"
 
       - name: Check Task
-        win_command: tasklist | find /i "process_name"
-        args:
-          executable: cmd.exe
+        community.general.pids:
+        name: process_name
+        # win_command: tasklist | find /i "process_name"
+        # args:
+        #   executable: cmd.exe
         register: taskId
+      
+      - debug:
+        var: taskId
+        verbosity: 2
 
       - name: Stop  Service - {{ site }}
         win_command: "taskkill /f /t /im {{ site }}.exe"
-        when: taskId.stderr != ""
+        when: taskId.pids != ""
 
       - name: "Check {{ dest_path }} is exist"
         win_stat:
