@@ -1,8 +1,6 @@
 - name: "Deploy {{ site }}"
   hosts: "{{ host }}"
   serial: 1
-  vars:
-    process_name: "{{ site }}.exe"
   tasks:
       - name: "Down {{ Version }} to target machine"
         win_get_url:
@@ -11,12 +9,8 @@
 
       - name: Check Task
         pids:
-          name: process_name
+          name: "{{ site }}.exe"
         register: taskId
-      
-      - debug:
-        var: taskId
-        verbosity: 2
 
       - name: Stop  Service - {{ site }}
         win_command: "taskkill /f /t /im {{ site }}.exe"
