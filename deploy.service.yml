@@ -15,11 +15,11 @@
         win_command: "taskkill /f /t /im {{ site }}.exe"
         when: taskId.stderr != ""
 
-      - name: "Clean Artifact E:\\{{ dest_path }}"
+      - name: "Clean Artifact {{ dest_path }}"
         win_shell: "Remove-Item –path {{ dest_path }} –recurse -force" #force = does the trick of what i want, delete the folder and all his files even if some of the files are in use or open in any program.
         args:
-          chdir: "E:\\{{ dest_path }}"
-          removes: "E:\\{{ dest_path }}" #checks if the folder exists else skips the task
+          chdir: "{{ dest_path }}"
+          removes: "{{ dest_path }}" #checks if the folder exists else skips the task
 
       - name: "Deploy {{ site }} Package"
         win_unzip:
