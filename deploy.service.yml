@@ -1,5 +1,5 @@
 - name: "Deploy DEV - {{ site }}-{{ Version }} "
-  hosts: "DEV"
+  hosts: "{{ host }}"
   serial: 1
   tasks:
       - name: "Down {{ Version }} to target machine"
