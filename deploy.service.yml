@@ -8,13 +8,12 @@
           dest: "E:\\deploy temp\\{{ site }}.zip"
 
       - name: Check Task
-        pids:
-          name: "{{ site }}.exe"
+        win_command: tasklist /FI "IMAGENAME eq {{site}}.exe" /FO LIST
         register: taskId
 
       - name: Stop  Service - {{ site }}
         win_command: "taskkill /f /t /im {{ site }}.exe"
-        when: taskId.pids != ""
+        when: taskId.stdout_lines|length>1
 
       - name: "Check {{ dest_path }} is exist"
         win_stat:
@@ -37,4 +36,3 @@
             chdir: "E:\\{{ site }}"
         async: 10
         poll: 0
-
