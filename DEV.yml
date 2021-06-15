@@ -28,3 +28,18 @@ dev:
         ArchiveService-01:
           ansible_host: 52.77.157.115
           dest_path: "E:\\ArchiveService"
+    BonusService:
+      hosts:
+        BonusService-01:
+          ansible_host: 52.77.157.115
+          dest_path: "E:\\BonusService"
+    PaymentService:
+      hosts:
+        PaymentService-01:
+          ansible_host: 52.77.157.115
+          dest_path: "E:\\PaymentService"
+    StatisticalWorker:
+      hosts:
+        StatisticalWorker-01:
+          ansible_host: 52.77.157.115
+          dest_path: "E:\\StatisticalWorker"
