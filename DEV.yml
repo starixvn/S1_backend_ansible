@@ -43,3 +43,28 @@ dev:
         StatisticalWorker-01:
           ansible_host: 52.77.157.115
           dest_path: "E:\\StatisticalWorker"
+    CommonService:
+      hosts:
+        CommonService-01:
+          ansible_host: 52.77.157.115
+          dest_path: "E:\\CommonService"
+    ThirdPartyBetHistory:
+      hosts:
+        ThirdPartyBetHistory-01:
+          ansible_host: 52.77.157.115
+          dest_path: "E:\\ThirdPartyBetHistory"
+    ThirdPartySeamlessWallet:
+      hosts:
+        ThirdPartySeamlessWallet-01:
+          ansible_host: 52.77.157.115
+          dest_path: "E:\\ThirdPartySeamlessWallet"
+    ThirdPartyService:
+      hosts:
+        ThirdPartyService-01:
+          ansible_host: 52.77.157.115
+          dest_path: "E:\\ThirdPartyService"
+    ThirdPartyWager:
+      hosts:
+        ThirdPartyWager-01:
+          ansible_host: 52.77.157.115
+          dest_path: "E:\\ThirdPartyWager"
