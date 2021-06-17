@@ -71,6 +71,16 @@ filebeat.inputs:
   json.keys_under_root: true
   json.add_error_key: true
 
+- type: log
+  enabled: true
+  paths:
+    - E:\logs\common\*.log
+  fields:
+    es_index: dev-common
+    logtype: common
+  json.keys_under_root: true
+  json.add_error_key: true
+
 # ============================== Filebeat modules ==============================
 
 filebeat.config.modules:
