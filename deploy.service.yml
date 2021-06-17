@@ -39,10 +39,10 @@
 
       - name: Check {{ site }} is running
         win_command: tasklist /FI "IMAGENAME eq {{site}}.exe" /FO LIST
-        register: taskId
+        register: result_taskId
 
       - name: Report status of {{ site }}
         fail:
           msg: |
-            {{ site }} is not running. Message: {{ taskId.stdout }}
-        when: taskId.stdout_lines|length<1
+            {{ site }} is not running. Message: {{ result_taskId.stdout }}
+        when: result_taskId.stdout_lines|length<1
