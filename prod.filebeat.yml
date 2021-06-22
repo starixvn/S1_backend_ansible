@@ -93,6 +93,16 @@ filebeat.inputs:
 - type: log
   enabled: true
   paths:
+    - E:\logs\bonus\*.log
+  fields:
+    es_index: prod-bonus
+    logtype: bonus
+  json.keys_under_root: true
+  json.add_error_key: true
+
+- type: log
+  enabled: true
+  paths:
     - E:\logs\release\tpservice\*.log
   fields:
     es_index: release-tpservice
