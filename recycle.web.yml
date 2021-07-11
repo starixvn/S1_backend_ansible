@@ -1,0 +1,10 @@
+---
+  - name: "Recycle {{ap}} web service"
+    hosts: "{{ host }}"
+    serial: 3
+
+    tasks:
+      - name: "Restart IIS"
+        win_iis_webapppool:
+          name: "{{ap}}"
+          state: restarted
