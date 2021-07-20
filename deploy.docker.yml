@@ -1,0 +1,17 @@
+- name: "deploy docker"
+  hosts: "{{ host }}"
+  serial: 1
+  tasks:
+    - name: "login"
+      docker_login:
+        registry_url: "13.213.82.69:8082"
+        username: "admin"
+        password: "123456"
+
+    - name: "Run Docker images"
+      docker_container:
+        name: "{{site}}"
+        image: "13.213.82.69:8082/{{site}}:{{ver}}"
+        state: started
+        env: "ASPNETCORE_ENVIRONMENT=Production"
+        ports: "7788:80"

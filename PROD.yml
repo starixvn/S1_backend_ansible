@@ -1,0 +1,10 @@
+prod:
+  vars:
+    ansible_ssh_port: 22
+    ansible_password: "1q2w3e4r"
+    ansible_ssh_user: "twteam"
+  children:
+    Nginx:
+      hosts:
+        Nginx-01:
+          ansible_host: 10.4.194.24

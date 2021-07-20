@@ -1,0 +1,7 @@
+---
+- name: Configure webserver with nginx
+  hosts: "{{ host }}"
+  sudo: True
+  tasks:
+      - name: restart nginx
+        service: name=nginx state=restarted
