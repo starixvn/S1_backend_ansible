@@ -21,7 +21,7 @@
         register: folder_info
 
       - name: "Clean Artifact {{ dest_path }}"
-        win_shell: "Remove-Item –path {{ dest_path }} –recurse -force" #force = does the trick of what i want, delete the folder and all his files even if some of the files are in use or open in any program.
+        win_shell: "Remove-Item –path {{ dest_path }}\\* –recurse -force -exclude *.log" #force = does the trick of what i want, delete the folder and all his files even if some of the files are in use or open in any program.
         when: folder_info.stat.exists
 
       - name: "Deploy {{ site }} Package"
