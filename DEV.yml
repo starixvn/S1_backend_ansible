@@ -68,3 +68,9 @@ dev:
         ThirdPartyWager-01:
           ansible_host: 52.77.157.115
           dest_path: "E:\\ThirdPartyWager"
+    GeoIP:
+      hosts:
+        GeoIP-01:
+          ansible_host: 52.77.157.115
+          dest_path: "E:\\GeoIP"
+          
