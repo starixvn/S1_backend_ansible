@@ -103,6 +103,26 @@ filebeat.inputs:
 - type: log
   enabled: true
   paths:
+    - E:\logs\geoip\*.log
+  fields:
+    es_index: prod-geoip
+    logtype: geoip
+  json.keys_under_root: true
+  json.add_error_key: true
+
+- type: log
+  enabled: true
+  paths:
+    - E:\logs\statistic\*.log
+  fields:
+    es_index: prod-statistic
+    logtype: statistic
+  json.keys_under_root: true
+  json.add_error_key: true
+
+- type: log
+  enabled: true
+  paths:
     - E:\logs\release\tpservice\*.log
   fields:
     es_index: release-tpservice
