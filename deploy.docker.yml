@@ -10,8 +10,10 @@
 
     - name: "Run Docker images"
       docker_container:
-        name: "{{site}}"
-        image: "13.213.82.69:8082/{{site}}:{{ver}}"
+        name: "{{proj}}"
+        image: "13.213.82.69:8082/{{proj}}:{{ver}}"
         state: started
-        env: "ASPNETCORE_ENVIRONMENT=Production"
-        ports: "7788:80"
+        env: "ASPNETCORE_ENVIRONMENT=Release"
+        ports: "{{port}}:80"
+        volumes:
+           - /logs/{{proj}}:/{{proj}}
