@@ -10,4 +10,9 @@ dev:
           ansible_host: 10.4.194.26
         MemberSite-02:
           ansible_host: 10.4.194.27
-          
+    Backend:
+      hosts:
+        Backend-01:
+          ansible_host: 10.4.194.26
+        Backend-01:
+          ansible_host: 10.4.194.27
