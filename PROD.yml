@@ -1,10 +1,18 @@
-prod:
+dev:
   vars:
-    ansible_ssh_port: 22
-    ansible_password: "1q2w3e4r"
-    ansible_ssh_user: "twteam"
+    ansible_ssh_user: "hulk"
+    ansible_ssh_pass: "123456"
+
   children:
-    Nginx:
+    MemberSite:
       hosts:
-        Nginx-01:
-          ansible_host: 10.4.194.24
+        MemberSite-01:
+          ansible_host: 10.4.194.26
+        MemberSite-02:
+          ansible_host: 10.4.194.27
+    Backend:
+      hosts:
+        Backend-01:
+          ansible_host: 10.4.194.26
+        Backend-02:
+          ansible_host: 10.4.194.27

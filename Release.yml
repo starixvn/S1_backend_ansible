@@ -1,7 +1,7 @@
 dev:
   vars:
-    ansible_ssh_user: "twteam"
-    ansible_ssh_pass: "1q2w3e4r"
+    ansible_ssh_user: "hulk"
+    ansible_ssh_pass: "123456"
 
   children:
     MemberSite:
