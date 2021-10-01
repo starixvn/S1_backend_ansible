@@ -2,18 +2,35 @@
   hosts: "{{ host }}"
   serial: 1
   tasks:
-    - name: "login"
+    - name: "Docker login"
       docker_login:
         registry_url: "13.213.82.69:8082"
         username: "admin"
         password: "123456"
 
+    - name: Get infos on container
+      docker_container_info:
+        name: "{{ docker_name }}"
+      register: result
+
+    - name: "Stop Docker images"
+      docker_container:
+        name: "{{ docker_name }}"
+        state: stopped
+      when: result.exists
+
+    - name: "Remove Docker images"
+      docker_container:
+        name: "{{ docker_name }}"
+        state: absent
+      when: result.exists
+
     - name: "Run Docker images"
       docker_container:
-        name: "{{env}}-{{proj}}"
+        name: "{{ docker_name }}"
         image: "13.213.82.69:8082/{{proj}}:{{ver}}"
         state: started
         env: "ASPNETCORE_ENVIRONMENT={{env}}"
         ports: "{{port}}:80"
         volumes:
-           - /logs/{{proj}}:/{{proj}}
+           - "{{volume}}:/{{proj}}"
