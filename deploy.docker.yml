@@ -32,5 +32,6 @@
         state: started
         env: "ASPNETCORE_ENVIRONMENT={{env}}"
         ports: "{{port}}:80"
+        restart_policy: always
         volumes:
            - "{{volume}}:/{{proj}}"
