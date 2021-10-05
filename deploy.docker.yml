@@ -34,4 +34,4 @@
         ports: "{{port}}:80"
         restart_policy: always
         volumes:
-           - "{{volume}}:/{{proj}}"
+           - "{{volume}}"
