@@ -1,0 +1,8 @@
+- name: "restart container"
+  hosts: "{{ host }}"
+  serial: 1
+  tasks:
+    - name: Restart container
+      docker_container:
+        name: "{{ docker_name }}"
+        restart: yes
