@@ -78,4 +78,9 @@ dev:
         HangfireService-01:
           ansible_host: 52.77.157.115
           dest_path: "E:\\HangfireService"
+    ConfigService:
+      hosts:
+        ConfigService-01:
+          ansible_host: 52.77.157.115
+          dest_path: "E:\\ConfigService"
           
