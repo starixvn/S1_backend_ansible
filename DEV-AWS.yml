@@ -1,0 +1,12 @@
+dev:
+  vars:
+    ansible_ssh_user: "centos"
+    ansible_ssh_pass: ""
+
+  children:
+    ConfigService:
+      hosts:
+        ConfigService-01:
+          ansible_host: 13.250.12.137
+
+          
