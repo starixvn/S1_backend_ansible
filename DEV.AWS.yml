@@ -1,7 +1,7 @@
 dev:
   vars:
     ansible_user: "jenkins"
-    ansible_ssh_pass: "Welcome1@"
+    ansible_pass : "Welcome1@"
 
   children:
     ConfigService:
