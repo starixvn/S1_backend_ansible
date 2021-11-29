@@ -1,7 +1,6 @@
 dev:
   vars:
     ansible_user: "jenkins"
-    ansible_password : "Welcome1@"
 
   children:
     ConfigService:
