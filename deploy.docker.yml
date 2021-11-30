@@ -31,7 +31,7 @@
         image: "13.213.82.69:8082/{{ver}}"
         state: started
         env: "ASPNETCORE_ENVIRONMENT={{env}}"
-        ports: "{{docker_ports}}"
+        ports: "{{ docker_ports | default([]) }}"
         restart_policy: always
         volumes:
-           - "{{volume}}"
+           - "{{ volume | default([]) }}"

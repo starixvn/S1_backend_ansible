@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends software-proper
 
 RUN pip3 install -U pip
 RUN apt-get update
-RUN apt-get install -y ansible
+RUN pip3 install ansible
 RUN pip3 install http://github.com/diyan/pywinrm/archive/master.zip#egg=pywinrm
 RUN pip3 install requests-credssp pywinrm[credssp] boto boto3
 RUN apt-get install -y zip
