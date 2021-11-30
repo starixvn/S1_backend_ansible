@@ -3,9 +3,9 @@ dev:
     ansible_user: "jenkins"
 
   children:
-    ConfigService:
+    linux-dev:
       hosts:
-        ConfigService-01:
+        linux-dev-01:
           ansible_host: 172.31.17.90
 
           
