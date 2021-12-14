@@ -33,4 +33,9 @@ dev:
     Hangfire:
       hosts:
         Hangfire-01:
-          ansible_host: 10.4.194.27
+          ansible_host: 10.4.194.27    
+
+    SettleWorker:
+      hosts:
+        SettleWorker-01:
+          ansible_host: 10.4.194.28
