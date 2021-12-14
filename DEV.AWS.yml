@@ -1,6 +1,7 @@
 dev:
   vars:
     ansible_user: "jenkins"
+    ansible_python_interpreter: "/usr/bin/python3"
 
   children:
     linux-dev:
