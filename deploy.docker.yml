@@ -35,3 +35,8 @@
         restart_policy: always
         volumes:
            - "{{ volume | default([]) }}"
+
+    - name: "Sleep for 10 seconds"
+      wait_for:
+        delay: 10
+        timeout: 0
