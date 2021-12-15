@@ -6,8 +6,8 @@
       docker_container:
         name: "{{ docker_name }}"
         restart: yes
-        
-    - name: "Sleep for 10 seconds"
+
+    - name: "Sleep for 20 seconds"
       wait_for:
-        delay: 10
+        delay: 20
         timeout: 0
