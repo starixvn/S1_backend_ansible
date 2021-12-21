@@ -1,0 +1,103 @@
+# ============================== Filebeat inputs ===============================
+
+filebeat.inputs:
+
+- type: log
+  enabled: true
+  paths:
+    - /logs/hangfire/*.log
+  fields:
+    es_index: dev-hangfire
+    logtype: hangfire
+  json.keys_under_root: true
+  json.add_error_key: true
+
+- type: log
+  enabled: true
+  paths:
+    - /logs/membersite/*.log
+  fields:
+    es_index: dev-membersite
+    logtype: membersite
+  json.keys_under_root: true
+  json.add_error_key: true
+
+- type: log
+  enabled: true
+  paths:
+   - /logs/membersiteApp/*.log
+  fields:
+    es_index: dev-membersite
+    logtype: membersiteApp
+  json.keys_under_root: true
+  json.add_error_key: true
+
+- type: log
+  enabled: true
+  paths:
+   - /logs/settleworker/*.log
+  fields:
+    es_index: dev-settleworker
+    logtype: settleworker
+  json.keys_under_root: true
+  json.add_error_key: true
+
+- type: log
+  enabled: true
+  paths:
+   - /logs/backendsite/*.log
+  fields:
+    es_index: dev-backend
+    logtype: backend
+  json.keys_under_root: true
+  json.add_error_key: true
+
+- type: log
+  enabled: true
+  paths:
+    - /logs/payment/*.log
+  fields:
+    es_index: dev-payment
+    logtype: payment
+  json.keys_under_root: true
+  json.add_error_key: true
+
+
+# ============================== Filebeat modules ==============================
+
+filebeat.config.modules:
+  path: ${path.config}/modules.d/*.yml
+  reload.enabled: false
+
+# ======================= Elasticsearch template setting =======================
+setup.template.enabled: false
+setup.ilm.enabled: false
+ilm.enabled: false
+# ------------------------------ Logstash Output -------------------------------
+output.logstash:
+  hosts: ["54.151.226.243:5044"]
+  # index: "dev-payment"
+  # Prod Porxy
+  # proxy_url: 'http://10.4.194.100:3128'
+
+# ================================= Processors =================================
+processors:
+  - add_host_metadata: ~
+  - add_tags:
+     tags: ["52.221.19.140"]
+     target: "host.ip"
+      # when.not.contains.tags: forwarded
+  # - add_cloud_metadata: ~
+  # - add_docker_metadata: ~
+  # - add_kubernetes_metadata: ~
+
+# ================================== Logging ===================================
+logging.level: info
+logging.to_files: true
+logging.files:
+  path: /logs/filebeat
+  name: filebeat.log
+  keepfiles: 7
+  rotateeverybytes: 10485760
+
+
