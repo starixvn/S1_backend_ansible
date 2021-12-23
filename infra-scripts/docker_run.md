@@ -2,7 +2,9 @@
 docker run -d -v /newvolume/jenkins_home:/var/jenkins_home -p 8080:8080 -p 50000:50000 myjenkins:0.7
 
 # artifact
-docker run -d -v /newvolume/nexus-data:/nexus-data -p 8081:8081 -p 8082:8082 --name nexus sonatype/nexus3
+sudo mkdir /newvolume/nexus-data
+sudo chown -R 200 /newvolume/nexus-data
+sudo docker run -d -v /newvolume/nexus-data:/nexus-data -p 8081:8081 -p 8082:8082 --name nexus sonatype/nexus3
 
 # filebeat
 docker run -d -v /logs:/logs -v /usr/share/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml docker.elastic.co/beats/filebeat:7.15.2
