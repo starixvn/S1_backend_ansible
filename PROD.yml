@@ -14,7 +14,6 @@ dev:
         MemberSite-03:
           ansible_host: 10.4.194.28
 
-
     MemberSiteApp:
       hosts:
         MemberSiteApp-01:
@@ -43,3 +42,8 @@ dev:
       hosts:
         SettleWorker-01:
           ansible_host: 10.4.194.28
+
+    PaymentService:
+      hosts:
+        PaymentService-01:
+          ansible_host: 10.4.194.29
