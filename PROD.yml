@@ -32,6 +32,8 @@ dev:
       hosts:
         Config-01:
           ansible_host: 10.4.194.27
+        Config-02:
+          ansible_host: 10.4.194.29
 
     Hangfire:
       hosts:
