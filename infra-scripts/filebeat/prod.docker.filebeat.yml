@@ -1,0 +1,101 @@
+# ============================== Filebeat inputs ===============================
+filebeat.inputs:
+
+- type: log
+  enabled: true
+  paths:
+    - /logs/membersite/*.log
+  fields:
+    es_index: prod-membersite
+    logtype: membersite
+  json.keys_under_root: true
+  json.add_error_key: true
+
+- type: log
+  enabled: true
+  paths:
+   - /logs/membersiteApp/*.log
+  fields:
+    es_index: prod-membersite
+    logtype: membersiteApp
+  json.keys_under_root: true
+  json.add_error_key: true
+
+- type: log
+  enabled: true
+  paths:
+    - /logs/backendsite/*.log
+  fields:
+    es_index: prod-backend
+    logtype: backend
+  json.keys_under_root: true
+  json.add_error_key: true
+
+- type: log
+  enabled: true
+  paths:
+    - /logs/release/membersite/*.log
+  fields:
+    es_index: release-membersite
+    logtype: membersite
+  json.keys_under_root: true
+  json.add_error_key: true
+
+- type: log
+  enabled: true
+  paths:
+    - /logs/release/backendsite/*.log
+  fields:
+    es_index: release-backend
+    logtype: backend
+  json.keys_under_root: true
+  json.add_error_key: true
+
+- type: log
+  enabled: true
+  paths:
+    - /logs/hangfire/*.log
+  fields:
+    es_index: prod-hangfire
+    logtype: hangfire
+  json.keys_under_root: true
+  json.add_error_key: true
+
+# ============================== Filebeat modules ==============================
+
+filebeat.config.modules:
+  path: ${path.config}/modules.d/*.yml
+  reload.enabled: false
+
+# ======================= Elasticsearch template setting =======================
+setup.template.enabled: false
+setup.ilm.enabled: false
+ilm.enabled: false
+# ------------------------------ Logstash Output -------------------------------
+output.logstash:
+  hosts: ["54.151.226.243:5044"]
+  # index: "prod-payment"
+  # Prod Porxy
+  # proxy_use_local_resolver: true
+  proxy_url: socks5://10.4.194.104:1080
+
+# ================================= Processors =================================
+processors:
+  - add_host_metadata: ~
+  - add_tags:
+     tags: ["10.4.194.26"] #改成對應的 ServerIP
+     target: "SourceIP"
+
+  # when.not.contains.tags: forwarded
+  # - add_cloud_metadata: ~
+  # - add_docker_metadata: ~
+  # - add_kubernetes_metadata: ~
+
+# ================================== Logging ===================================
+logging.level: info
+logging.to_files: true
+logging.files:
+  path: /logs/filebeat
+  name: filebeat.log
+  keepfiles: 7
+  rotateeverybytes: 10485760
