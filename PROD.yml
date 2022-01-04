@@ -49,7 +49,3 @@ dev:
       hosts:
         PaymentService-01:
           ansible_host: 10.4.194.29
-        PaymentService-02:
-          ansible_host: 10.4.194.30
-        PaymentService-03:
-          ansible_host: 10.4.194.31
