@@ -62,6 +62,17 @@ filebeat.inputs:
   json.keys_under_root: true
   json.add_error_key: true
 
+- type: log
+  enabled: true
+  paths:
+    - /logs/seamlesswallet/*.log
+  fields:
+    es_index: dev-seamless
+    logtype: seamless
+  json.keys_under_root: true
+  json.add_error_key: true
+
+
 
 # ============================== Filebeat modules ==============================
 
