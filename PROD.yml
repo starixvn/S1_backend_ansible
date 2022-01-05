@@ -49,3 +49,8 @@ dev:
       hosts:
         PaymentService-01:
           ansible_host: 10.4.194.29
+
+    SeamlessWallet:
+      hosts:
+        SeamlessWallet-01:
+          ansible_host: 10.4.194.30
