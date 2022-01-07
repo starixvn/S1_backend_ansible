@@ -74,7 +74,7 @@ filebeat.inputs:
 - type: log
   enabled: true
   paths:
-    - /home/logs/seamlesswallet/*.log
+    - /logs/seamlesswallet/*.log
   fields:
     es_index: prod-seamless
     logtype: seamless
