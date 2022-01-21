@@ -13,6 +13,6 @@ dev:
       hosts:
         ThirdPartyService-01:
           ansible_host: 172.31.17.90
-          service_type: "worker"
+          service_type: "Worker"
 
           

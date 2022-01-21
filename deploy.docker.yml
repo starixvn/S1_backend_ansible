@@ -32,7 +32,7 @@
         state: started
         env: 
           ASPNETCORE_ENVIRONMENT: "{{env}}"
-          ServiceType: "{{service_type | default('webapi')}}"
+          ServiceType: "{{service_type | default('API')}}"
         ports: "{{ docker_ports | default([]) }}"
         restart_policy: always
         volumes:
