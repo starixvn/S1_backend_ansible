@@ -72,7 +72,15 @@ filebeat.inputs:
   json.keys_under_root: true
   json.add_error_key: true
 
-
+- type: log
+  enabled: true
+  paths:
+    - /logs/bonus/*.log
+  fields:
+    es_index: dev-bonus
+    logtype: bonus
+  json.keys_under_root: true
+  json.add_error_key: true
 
 # ============================== Filebeat modules ==============================
 
