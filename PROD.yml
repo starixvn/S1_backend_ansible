@@ -60,3 +60,8 @@ dev:
           ansible_host: 10.4.194.30
         SeamlessWallet-03:
           ansible_host: 10.4.194.31
+
+    BonusService:
+      hosts:
+        BonusService-01:
+          ansible_host: 10.4.194.31
