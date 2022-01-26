@@ -1,6 +1,8 @@
 - name: "deploy docker"
   hosts: "{{ host }}"
   serial: 1
+  vars:
+    env: "{{env}}"
   tasks:
     - name: "Docker login"
       docker_login:
@@ -42,3 +44,4 @@
       wait_for:
         delay: 20
         timeout: 0
+      when: env == "Production"
