@@ -1,6 +1,8 @@
 - name: "restart container"
   hosts: "{{ host }}"
   serial: 1
+  vars:
+    env: "{{env}}"
   tasks:
     - name: Restart container
       docker_container:
@@ -11,3 +13,4 @@
       wait_for:
         delay: 20
         timeout: 0
+      when: env == "Production"
