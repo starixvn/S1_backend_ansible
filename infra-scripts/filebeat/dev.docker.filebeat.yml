@@ -65,6 +65,26 @@ filebeat.inputs:
 - type: log
   enabled: true
   paths:
+    - /logs/tpservice/*.log
+  fields:
+    es_index: dev-tpservice
+    logtype: tpservice
+  json.keys_under_root: true
+  json.add_error_key: true
+
+- type: log
+  enabled: true
+  paths:
+    - /logs/common/*.log
+  fields:
+    es_index: dev-common
+    logtype: common
+  json.keys_under_root: true
+  json.add_error_key: true
+
+- type: log
+  enabled: true
+  paths:
     - /logs/seamlesswallet/*.log
   fields:
     es_index: dev-seamless
@@ -79,6 +99,16 @@ filebeat.inputs:
   fields:
     es_index: dev-bonus
     logtype: bonus
+  json.keys_under_root: true
+  json.add_error_key: true
+
+- type: log
+  enabled: true
+  paths:
+    - /logs/bethistory/*.log
+  fields:
+    es_index: dev-bethistory
+    logtype: bethistory
   json.keys_under_root: true
   json.add_error_key: true
 
