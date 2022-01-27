@@ -65,3 +65,8 @@ dev:
       hosts:
         BonusService-01:
           ansible_host: 10.4.194.31
+
+    BetHistory:
+      hosts:
+        BetHistory-01:
+          ansible_host: 10.4.194.31
