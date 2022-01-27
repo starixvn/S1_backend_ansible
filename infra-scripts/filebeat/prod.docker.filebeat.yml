@@ -74,10 +74,30 @@ filebeat.inputs:
 - type: log
   enabled: true
   paths:
+   - /logs/settleworker/*.log
+  fields:
+    es_index: prod-settleworker
+    logtype: settleworker
+  json.keys_under_root: true
+  json.add_error_key: true
+
+- type: log
+  enabled: true
+  paths:
     - /logs/seamlesswallet/*.log
   fields:
     es_index: prod-seamless
     logtype: seamless
+  json.keys_under_root: true
+  json.add_error_key: true
+
+- type: log
+  enabled: true
+  paths:
+    - /logs/bonus/*.log
+  fields:
+    es_index: prod-bonus
+    logtype: bonus
   json.keys_under_root: true
   json.add_error_key: true
 
