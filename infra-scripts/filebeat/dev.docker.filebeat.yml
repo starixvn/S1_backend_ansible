@@ -35,16 +35,6 @@ filebeat.inputs:
 - type: log
   enabled: true
   paths:
-   - /logs/settleworker/*.log
-  fields:
-    es_index: dev-settleworker
-    logtype: settleworker
-  json.keys_under_root: true
-  json.add_error_key: true
-
-- type: log
-  enabled: true
-  paths:
    - /logs/backendsite/*.log
   fields:
     es_index: dev-backend
@@ -65,6 +55,26 @@ filebeat.inputs:
 - type: log
   enabled: true
   paths:
+   - /logs/settleworker/*.log
+  fields:
+    es_index: dev-settleworker
+    logtype: settleworker
+  json.keys_under_root: true
+  json.add_error_key: true
+
+- type: log
+  enabled: true
+  paths:
+    - /logs/seamlesswallet/*.log
+  fields:
+    es_index: dev-seamless
+    logtype: seamless
+  json.keys_under_root: true
+  json.add_error_key: true
+
+- type: log
+  enabled: true
+  paths:
     - /logs/tpservice/*.log
   fields:
     es_index: dev-tpservice
@@ -79,16 +89,6 @@ filebeat.inputs:
   fields:
     es_index: dev-common
     logtype: common
-  json.keys_under_root: true
-  json.add_error_key: true
-
-- type: log
-  enabled: true
-  paths:
-    - /logs/seamlesswallet/*.log
-  fields:
-    es_index: dev-seamless
-    logtype: seamless
   json.keys_under_root: true
   json.add_error_key: true
 
