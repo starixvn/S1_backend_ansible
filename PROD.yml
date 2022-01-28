@@ -74,5 +74,15 @@ dev:
 
     Filebeat:
       hosts:
+        Filebeat-01:
+          ansible_host: 10.4.194.26
+        Filebeat-02:
+          ansible_host: 10.4.194.27
+        Filebeat-03:
+          ansible_host: 10.4.194.28
+        Filebeat-04:
+          ansible_host: 10.4.194.29
+        Filebeat-05:
+          ansible_host: 10.4.194.30
         Filebeat-06:
           ansible_host: 10.4.194.31
