@@ -9,3 +9,8 @@
         networks: yes
         volumes: yes
         builder_cache: yes
+      register: result
+    
+    - name: "display logs"
+      debug:
+        msg:  "{{ result }}"
