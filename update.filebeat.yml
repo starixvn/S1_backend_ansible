@@ -3,12 +3,11 @@
   serial: 2
   tasks:
     - name: copy filebeat.yml
-      ansible.builtin.copy:
-        src: /infra-scripts/filebeat/prod.docker.filebeat.yml
+      copy:
+        src: infra-scripts/filebeat/prod.docker.filebeat.yml
         dest: /usr/share/filebeat/filebeat.yml
-        owner: root
-        group: root
-        mode: '0644'
+        force: yes
+      become: true
 
     - name: restart filebeat
       docker_container:

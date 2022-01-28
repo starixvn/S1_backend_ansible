@@ -3,6 +3,7 @@ dev:
     ansible_ssh_user: "jenkins"
     ansible_ssh_pass: "Welcome1@"
     ansible_python_interpreter: "/usr/bin/python3"
+    ansible_become_pass: "Welcome1@"
 
   children:
     MemberSite:
