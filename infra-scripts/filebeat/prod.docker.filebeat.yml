@@ -94,10 +94,10 @@ filebeat.inputs:
 - type: log
   enabled: true
   paths:
-    - /logs/bonus/*.log
+    - /logs/tpservice/*.log
   fields:
-    es_index: prod-bonus
-    logtype: bonus
+    es_index: prod-tpservice
+    logtype: tpservice
   json.keys_under_root: true
   json.add_error_key: true
 
@@ -114,13 +114,42 @@ filebeat.inputs:
 - type: log
   enabled: true
   paths:
-    - /logs/tpservice/*.log
+    - /logs/tpwager/*.log
   fields:
-    es_index: prod-tpservice
-    logtype: tpservice
+    es_index: prod-tpwager
+    logtype: tpwager
   json.keys_under_root: true
   json.add_error_key: true
 
+- type: log
+  enabled: true
+  paths:
+    - /logs/bonus/*.log
+  fields:
+    es_index: prod-bonus
+    logtype: bonus
+  json.keys_under_root: true
+  json.add_error_key: true
+
+- type: log
+  enabled: true
+  paths:
+    - /logs/bethistory/*.log
+  fields:
+    es_index: prod-bethistory
+    logtype: bethistory
+  json.keys_under_root: true
+  json.add_error_key: true
+
+- type: log
+  enabled: true
+  paths:
+    - /logs/statistic/*.log
+  fields:
+    es_index: prod-statistic
+    logtype: statistic
+  json.keys_under_root: true
+  json.add_error_key: true
 
 # ============================== Filebeat modules ==============================
 
