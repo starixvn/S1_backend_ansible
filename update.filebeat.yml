@@ -12,4 +12,9 @@
     - name: restart filebeat
       docker_container:
         name: "filebeat"
+        image: "docker.elastic.co/beats/filebeat:7.15.2"
+        state: started
+        volumes:
+          - /logs:/logs 
+          - /usr/share/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
         restart: yes
