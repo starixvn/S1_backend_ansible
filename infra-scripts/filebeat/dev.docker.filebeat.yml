@@ -95,6 +95,16 @@ filebeat.inputs:
 - type: log
   enabled: true
   paths:
+    - /logs/tpwager/*.log
+  fields:
+    es_index: dev-tpwager
+    logtype: tpwager
+  json.keys_under_root: true
+  json.add_error_key: true
+
+- type: log
+  enabled: true
+  paths:
     - /logs/bonus/*.log
   fields:
     es_index: dev-bonus
@@ -109,6 +119,16 @@ filebeat.inputs:
   fields:
     es_index: dev-bethistory
     logtype: bethistory
+  json.keys_under_root: true
+  json.add_error_key: true
+
+- type: log
+  enabled: true
+  paths:
+    - /logs/statistic/*.log
+  fields:
+    es_index: dev-statistic
+    logtype: statistic
   json.keys_under_root: true
   json.add_error_key: true
 
