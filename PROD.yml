@@ -70,3 +70,8 @@ dev:
       hosts:
         BetHistory-01:
           ansible_host: 10.4.194.31
+
+    Filebeat:
+      hosts:
+        Filebeat-06:
+          ansible_host: 10.4.194.31
