@@ -7,7 +7,7 @@ sudo chown -R 200 /newvolume/nexus-data
 sudo docker run -d -v /newvolume/nexus-data:/nexus-data -p 8081:8081 -p 8082:8082 --name nexus sonatype/nexus3
 
 # filebeat
-docker run -d -v /logs:/logs -v /usr/share/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml docker.elastic.co/beats/filebeat:7.11.1
+docker run -d -v /logs:/logs -v /usr/share/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml --user=root --name filebeat docker.elastic.co/beats/filebeat:7.15.2
 
 # nginx
 sudo docker run -d -p 80:80 -p 7789:7789 -v /nginx:/etc/nginx -v /usr/share/GeoIP:/usr/share/GeoIP nginx:1.18.0
