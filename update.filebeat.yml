@@ -9,6 +9,13 @@
         force: yes
       become: true
 
+    - name: Replace SourceIP with {{ansible_host}}
+      lineinfile:
+        path: /usr/share/filebeat/test.yml
+        regexp: '\stags:'
+        line: '      tags: ["{{ansible_host}}"]'
+      become: true
+
     - name: restart filebeat
       docker_container:
         name: "filebeat"

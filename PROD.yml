@@ -89,5 +89,7 @@ dev:
     
     Test:
       hosts:
+        Test-05:
+          ansible_host: 10.4.194.30
         Test-06:
           ansible_host: 10.4.194.31

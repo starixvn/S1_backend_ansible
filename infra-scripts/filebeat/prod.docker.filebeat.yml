@@ -173,8 +173,8 @@ output.logstash:
 processors:
   - add_host_metadata: ~
   - add_tags:
-     tags: ["10.4.194.26"] #改成對應的 ServerIP
-     target: "SourceIP"
+      tags: ["10.4.194.26"] #改成對應的 ServerIP
+      target: "SourceIP"
 
   # when.not.contains.tags: forwarded
   # - add_cloud_metadata: ~
