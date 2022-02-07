@@ -44,4 +44,4 @@
       wait_for:
         delay: 20
         timeout: 0
-      when: env == "Production"
+      when: (env == "Production") or (env == "Production.APP")
