@@ -89,5 +89,15 @@ dev:
     
     Docker:
       hosts:
+        Docker-01:
+          ansible_host: 10.4.194.26
+        Docker-02:
+          ansible_host: 10.4.194.27
+        Docker-03:
+          ansible_host: 10.4.194.28
+        Docker-04:
+          ansible_host: 10.4.194.29
+        Docker-05:
+          ansible_host: 10.4.194.30
         Docker-06:
           ansible_host: 10.4.194.31
