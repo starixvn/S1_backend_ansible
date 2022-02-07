@@ -11,7 +11,7 @@
 
     - name: Replace SourceIP with {{ansible_host}}
       lineinfile:
-        path: /usr/share/filebeat/test.yml
+        path: /usr/share/filebeat/filebeat.yml
         regexp: '\stags:'
         line: '      tags: ["{{ansible_host}}"]'
       become: true
