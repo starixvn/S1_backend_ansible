@@ -11,7 +11,6 @@
         networks: yes
         volumes: yes
         builder_cache: yes
-        debug : yes
       register: result
     
     - name: "result"
