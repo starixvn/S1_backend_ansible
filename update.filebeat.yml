@@ -1,6 +1,6 @@
 - name: "update filebeat"
   hosts: "{{ host }}"
-  serial: 2
+  serial: 1
   tasks:
     - name: copy filebeat.yml
       copy:
@@ -18,3 +18,8 @@
           - /logs:/logs 
           - /usr/share/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
         restart: yes
+
+    - name: "Sleep for 10 seconds"
+      wait_for:
+        delay: 10
+        timeout: 0
