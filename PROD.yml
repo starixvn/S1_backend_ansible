@@ -62,6 +62,10 @@ dev:
         SeamlessWallet-03:
           ansible_host: 10.4.194.31
 
+    TpWager:
+      TpWager-01:
+          ansible_host: 10.4.194.28
+
     BonusService:
       hosts:
         BonusService-01:
