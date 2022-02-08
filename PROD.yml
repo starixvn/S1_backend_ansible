@@ -72,6 +72,13 @@ dev:
         BetHistory-01:
           ansible_host: 10.4.194.31
 
+    CommonService:
+      hosts:
+        CommonService-01:
+          ansible_host: 10.4.194.29
+        CommonService-02:
+          ansible_host: 10.4.194.30
+
     Filebeat:
       hosts:
         Filebeat-01:

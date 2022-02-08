@@ -22,5 +22,5 @@ dev:
     ThirdPartyService:
       hosts:
         ThirdPartyService-01:
-          ansible_host: 10.4.194.26
+          ansible_host: 10.4.194.28
           service_type: "API"
