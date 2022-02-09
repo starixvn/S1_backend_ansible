@@ -65,7 +65,7 @@ dev:
     TpWager:
       hosts:
         TpWager-01:
-          ansible_host: 10.4.194.28
+          ansible_host: 10.4.194.26
 
     BonusService:
       hosts:
