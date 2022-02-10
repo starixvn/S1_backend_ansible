@@ -84,6 +84,15 @@ dev:
         CommonService-02:
           ansible_host: 10.4.194.30
 
+    ThirdPartyService:
+      hosts:
+        ThirdPartyService-01:
+          ansible_host: 10.4.194.29
+          service_type: "API"
+        ThirdPartyService-02:
+          ansible_host: 10.4.194.30
+          service_type: "Worker"
+
     Filebeat:
       hosts:
         Filebeat-01:
