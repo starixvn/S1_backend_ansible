@@ -6,13 +6,13 @@
   tasks:
     - name: "Docker login"
       docker_login:
-        registry_url: "13.213.82.69:8082"
+        registry_url: "docker.ailabpte.co"
         username: "admin"
         password: "123456"
 
     - name: "Pull an image"
       docker_image:
-        name: "13.213.82.69:8082/{{ver}}"
+        name: "docker.ailabpte.co/{{ver}}"
         source: pull
 
     - name: Get infos on container
@@ -35,7 +35,7 @@
     - name: "Run Docker images"
       docker_container:
         name: "{{ docker_name }}"
-        image: "13.213.82.69:8082/{{ver}}"
+        image: "docker.ailabpte.co/{{ver}}"
         state: started
         env: 
           ASPNETCORE_ENVIRONMENT: "{{env}}"
