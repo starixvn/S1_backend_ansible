@@ -10,6 +10,11 @@
         username: "admin"
         password: "123456"
 
+    - name: "Pull an image"
+      docker_image:
+        name: "13.213.82.69:8082/{{ver}}"
+        source: pull
+
     - name: Get infos on container
       docker_container_info:
         name: "{{ docker_name }}"
