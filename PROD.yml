@@ -92,6 +92,9 @@ dev:
         ThirdPartyService-02:
           ansible_host: 10.4.194.30
           service_type: "Worker"
+        ThirdPartyService-03:
+          ansible_host: 10.4.194.31
+          service_type: "API"
 
     Filebeat:
       hosts:
