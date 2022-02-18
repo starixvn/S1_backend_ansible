@@ -3,16 +3,22 @@
   serial: 1
   vars:
     env: "{{env}}"
+    url: "13.213.82.69:8082"
   tasks:
-    - name: "Docker login"
+    - name: "Set Docker Url"
+      set_fact:
+        url: "docker.ailabpte.co"
+      when: (env == "Production") or (env == "Production.APP") or (env == "Release")
+
+    - name: "Docker login {{url}}"
       docker_login:
-        registry_url: "docker.ailabpte.co"
+        registry_url: "{{url}}"
         username: "admin"
         password: "123456"
 
-    - name: "Pull an image"
+    - name: "Pull an image {{url}}"
       docker_image:
-        name: "docker.ailabpte.co/{{ver}}"
+        name: "{{url}}/{{ver}}"
         source: pull
 
     - name: Get infos on container
@@ -32,10 +38,10 @@
         state: absent
       when: result.exists
 
-    - name: "Run Docker images"
+    - name: "Run Docker images {{url}}"
       docker_container:
         name: "{{ docker_name }}"
-        image: "docker.ailabpte.co/{{ver}}"
+        image: "{{url}}/{{ver}}"
         state: started
         env: 
           ASPNETCORE_ENVIRONMENT: "{{env}}"
