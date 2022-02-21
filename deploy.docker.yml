@@ -5,11 +5,6 @@
     env: "{{env}}"
     url: "13.213.82.69:8082"
   tasks:
-    - name: "Set Docker Url"
-      set_fact:
-        url: "docker.ailabpte.co"
-      when: (env == "Production") or (env == "Production.APP") or (env == "Release")
-
     - name: "Docker login {{url}}"
       docker_login:
         registry_url: "{{url}}"
