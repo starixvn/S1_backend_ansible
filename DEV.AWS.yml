@@ -9,10 +9,11 @@ dev:
         linux-dev-01:
           ansible_host: 172.31.17.90
 
-    ThirdPartyService:
+    linux-dev-worker:
       hosts:
-        ThirdPartyService-01:
+        linux-dev-worker-01:
           ansible_host: 172.31.17.90
           service_type: "Worker"
+    
 
           
