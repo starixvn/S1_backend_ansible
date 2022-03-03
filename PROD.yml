@@ -97,6 +97,11 @@ dev:
           ansible_host: 10.4.194.31
           service_type: "API"
 
+    StatisticalWorker:
+      hosts:
+        StatisticalWorker-01:
+          ansible_host: 10.4.194.29
+
     Filebeat:
       hosts:
         Filebeat-01:
