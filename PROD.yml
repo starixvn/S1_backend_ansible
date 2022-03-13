@@ -96,6 +96,12 @@ dev:
         ThirdPartyService-03:
           ansible_host: 10.4.194.31
           service_type: "API"
+        ThirdPartyService-04:
+          ansible_host: 10.4.194.27
+          service_type: "API"
+        ThirdPartyService-05:
+          ansible_host: 10.4.194.28
+          service_type: "API"
 
     StatisticalWorker:
       hosts:
