@@ -10,12 +10,6 @@
         url: "docker.ailabpte.co"
       when: (env == "Production") or (env == "Production.APP") or (env == "Release")
 
-    - name: "Docker login {{url}}"
-      docker_login:
-        registry_url: "{{url}}"
-        username: "admin"
-        password: "123456"
-
     - name: "Pull an image {{url}}"
       docker_image:
         name: "{{url}}/{{ver}}"
