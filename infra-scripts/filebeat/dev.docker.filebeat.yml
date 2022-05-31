@@ -142,6 +142,16 @@ filebeat.inputs:
   json.keys_under_root: true
   json.add_error_key: true
 
+- type: log
+  enabled: true
+  paths:
+    - /logs/storeworker/*.log
+  fields:
+    es_index: dev-storeworker
+    logtype: storeworker
+  json.keys_under_root: true
+  json.add_error_key: true
+
 # ============================== Filebeat modules ==============================
 
 filebeat.config.modules:
