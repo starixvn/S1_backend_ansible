@@ -56,10 +56,12 @@ dev:
     SeamlessWallet:
       hosts:
         SeamlessWallet-01:
-          ansible_host: 10.4.194.29
+          ansible_host: 10.4.194.28
         SeamlessWallet-02:
-          ansible_host: 10.4.194.30
+          ansible_host: 10.4.194.29
         SeamlessWallet-03:
+          ansible_host: 10.4.194.30
+        SeamlessWallet-04:
           ansible_host: 10.4.194.31
 
     TpWager:
