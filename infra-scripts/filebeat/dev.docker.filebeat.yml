@@ -152,6 +152,16 @@ filebeat.inputs:
   json.keys_under_root: true
   json.add_error_key: true
 
+- type: log
+  enabled: true
+  paths:
+    - /logs/storesite/*.log
+  fields:
+    es_index: dev-storesite
+    logtype: storesite
+  json.keys_under_root: true
+  json.add_error_key: true
+
 # ============================== Filebeat modules ==============================
 
 filebeat.config.modules:
