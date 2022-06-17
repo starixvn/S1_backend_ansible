@@ -67,7 +67,7 @@ dev:
     TpWager:
       hosts:
         TpWager-01:
-          ansible_host: 10.4.194.27
+          ansible_host: 10.4.194.28
           service_type: "Worker"
 
     BonusService:
