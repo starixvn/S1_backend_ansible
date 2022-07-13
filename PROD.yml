@@ -119,6 +119,18 @@ dev:
       hosts:
         StatisticalWorker-01:
           ansible_host: 10.4.194.29
+    
+    StoreService:
+      hosts:
+        StoreService-01:
+          ansible_host: 10.4.194.30
+        StoreService-02:
+          ansible_host: 10.4.194.31
+
+    StoreWorker:
+      hosts:
+        StoreWorker-01:
+          ansible_host: 10.4.194.31
 
     Filebeat:
       hosts:
