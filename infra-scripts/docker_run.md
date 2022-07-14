@@ -1,6 +1,6 @@
 # jenkins
 <pre><code>
-docker run -d -v /newvolume/jenkins_home:/var/jenkins_home -p 8080:8080 -p 50000:50000 myjenkins:0.7
+docker run -d -v /newvolume/jenkins_home:/var/jenkins_home -p 8080:8080 -p 50000:50000 --name jenkins myjenkins:0.9
 </code></pre>
 
 # artifact
@@ -48,11 +48,13 @@ docker run -d -p 3000:3000 grafana/grafana
 ### master
 <pre><code>
 sudo docker run -v /home/centos/redis_master.conf:/etc/redis/redis_master.conf --name redis-master -p 6379:6379 -d redis:6.2.6 redis-server /etc/redis/redis_master.conf
+sudo docker run -v /etc/redis/redis_master.conf:/etc/redis/redis_master.conf --name redis-master -p 6379:6379 -d redis:6.2.6 redis-server /etc/redis/redis_master.conf
 </code></pre>
 
 ### slave
 <pre><code>
 sudo docker run -v /home/centos/redis_replica.conf:/etc/redis/redis_replica.conf --name redis-slave -p 6379:6379 -d redis:6.2.6 redis-server /etc/redis/redis_replica.conf
+sudo docker run -v /etc/redis/redis_replica.conf:/etc/redis/redis_replica.conf --name redis-slave -p 6379:6379 -d redis:6.2.6 redis-server /etc/redis/redis_replica.conf
 </code></pre>
 
 ### sentinel
@@ -61,4 +63,5 @@ sudo docker run -v /home/centos/redis_replica.conf:/etc/redis/redis_replica.conf
 * chmod 666 ${PWD}/sentinel_conf/redis_sentinel.conf
 <pre><code>
 sudo docker run -v /home/centos/sentinel1_conf:/sentinel_conf --name redis-sentinel1 -p 26381:26381 -d redis:6.2.6 redis-server /sentinel_conf/redis_sentinel.conf --sentinel
+sudo docker run -v /etc/redis/sentinel_conf:/sentinel_conf --name redis-sentinel1 -p 26381:26381 -d redis:6.2.6 redis-server /sentinel_conf/redis_sentinel.conf --sentinel
 </code></pre>

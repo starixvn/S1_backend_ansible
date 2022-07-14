@@ -5,15 +5,20 @@ RUN apt-get update && apt-get install -y wget gpg
 RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 RUN dpkg -i packages-microsoft-prod.deb
 RUN apt-get update
-RUN apt-get install -y apt-transport-https dotnet-sdk-3.1
+RUN apt-get install -y apt-transport-https
 
 RUN apt-get --assume-yes install python3.7
 RUN curl -O https://bootstrap.pypa.io/get-pip.py
 RUN apt-get update && apt-get install -y --no-install-recommends software-properties-common python3-pip curl python3-setuptools git awscli && apt-get clean
 
+RUN apt-get update && apt-get install -y nodejs npm
+RUN npm i -g npx
+RUN npm i -g gulp
+
 RUN pip3 install -U pip
 RUN apt-get update
 RUN pip3 install ansible
+
 RUN pip3 install http://github.com/diyan/pywinrm/archive/master.zip#egg=pywinrm
 RUN pip3 install requests-credssp pywinrm[credssp] boto boto3
 RUN apt-get install -y zip
