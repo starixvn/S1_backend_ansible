@@ -162,7 +162,7 @@ dev:
         Docker-06:
           ansible_host: 10.4.194.31
     
-    MemberSiteNet6:
+    Net6:
       hosts:
-        MemberSiteNet6-01:
+        Net6-01:
           ansible_host: 10.4.194.29
