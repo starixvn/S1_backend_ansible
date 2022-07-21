@@ -89,8 +89,8 @@ dev:
 
     CommonService:
       hosts:
-        CommonService-01:
-          ansible_host: 10.4.194.29
+        # CommonService-01:
+        #   ansible_host: 10.4.194.29
         CommonService-02:
           ansible_host: 10.4.194.30
 
