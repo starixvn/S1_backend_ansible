@@ -57,8 +57,8 @@ dev:
       hosts:
         SeamlessWallet-01:
           ansible_host: 10.4.194.28
-        #SeamlessWallet-02:
-        #  ansible_host: 10.4.194.29
+        SeamlessWallet-02:
+         ansible_host: 10.4.194.29
         SeamlessWallet-03:
           ansible_host: 10.4.194.30
         SeamlessWallet-04:
@@ -89,24 +89,24 @@ dev:
 
     CommonService:
       hosts:
-        # CommonService-01:
-        #   ansible_host: 10.4.194.29
+        CommonService-01:
+          ansible_host: 10.4.194.29
         CommonService-02:
           ansible_host: 10.4.194.30
 
     ThirdPartyService:
       hosts:
         ThirdPartyService-01:
+          ansible_host: 10.4.194.28
+          service_type: "API"
+        ThirdPartyService-02:
+          ansible_host: 10.4.194.29
+          service_type: "Worker"
+        ThirdPartyService-03:
           ansible_host: 10.4.194.30
           service_type: "API"
-        # ThirdPartyService-02:
-        #   ansible_host: 10.4.194.30
-        #   service_type: "Worker"
-        ThirdPartyService-03:
-          ansible_host: 10.4.194.31
-          service_type: "API"
         ThirdPartyService-04:
-          ansible_host: 10.4.194.28
+          ansible_host: 10.4.194.31
           service_type: "API"
 
     StatisticalWorker:
