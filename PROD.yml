@@ -48,8 +48,8 @@ dev:
 
     PaymentService:
       hosts:
-        PaymentService-01:
-          ansible_host: 10.4.194.29
+        # PaymentService-01:
+        #   ansible_host: 10.4.194.29
         PaymentService-02:
           ansible_host: 10.4.194.30
 
@@ -73,14 +73,14 @@ dev:
     BonusService:
       hosts:
         BonusService-01:
-          ansible_host: 10.4.194.29
+          ansible_host: 10.4.194.31
           service_type: "API"
         BonusService-02:
           ansible_host: 10.4.194.30
           service_type: "API"
-        BonusService-03:
-          ansible_host: 10.4.194.31
-          service_type: "Worker"
+        # BonusService-03:
+        #   ansible_host: 10.4.194.29
+        #   service_type: "Worker"
 
     BetHistory:
       hosts:
