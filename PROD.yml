@@ -48,8 +48,8 @@ dev:
 
     PaymentService:
       hosts:
-        # PaymentService-01:
-        #   ansible_host: 10.4.194.29
+        PaymentService-01:
+          ansible_host: 10.4.194.29
         PaymentService-02:
           ansible_host: 10.4.194.30
 
@@ -58,7 +58,7 @@ dev:
         SeamlessWallet-01:
           ansible_host: 10.4.194.28
         SeamlessWallet-02:
-         ansible_host: 10.4.194.29
+         ansible_host:  10.4.194.29
         SeamlessWallet-03:
           ansible_host: 10.4.194.30
         SeamlessWallet-04:
@@ -78,9 +78,9 @@ dev:
         BonusService-02:
           ansible_host: 10.4.194.30
           service_type: "API"
-        # BonusService-03:
-        #   ansible_host: 10.4.194.29
-        #   service_type: "Worker"
+        BonusService-03:
+          ansible_host: 10.4.194.29
+          service_type: "Worker"
 
     BetHistory:
       hosts:
@@ -155,14 +155,4 @@ dev:
           ansible_host: 10.4.194.30
         Docker-06:
           ansible_host: 10.4.194.31
-    
-    Net6:
-      hosts:
-        Net6-01:
-          ansible_host: 10.4.194.29
-
-    Net6Worker:
-      hosts:
-        Net6Worker-01:
-          ansible_host: 10.4.194.29
-          service_type: "Worker"
+  
