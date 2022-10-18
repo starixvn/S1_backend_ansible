@@ -7,6 +7,11 @@
         name: "{{ docker_name }}"
       register: result
 
+    - name: "Pull an image {{img}}"
+      docker_image:
+        name: "{{img}}"
+        source: pull
+
     - name: "Stop docker container"
       docker_container:
         name: "{{ docker_name }}"
