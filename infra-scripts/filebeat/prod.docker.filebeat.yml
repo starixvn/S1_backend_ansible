@@ -181,6 +181,16 @@ filebeat.inputs:
   json.keys_under_root: true
   json.add_error_key: true
 
+- type: log
+  enabled: true
+  paths:
+    - /logs/geoip/*.log
+  fields:
+    es_index: prod-geoip
+    logtype: geoip
+  json.keys_under_root: true
+  json.add_error_key: true
+
 # ============================== Filebeat modules ==============================
 
 filebeat.config.modules:
