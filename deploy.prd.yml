@@ -12,5 +12,5 @@
       }
       - {
         role: sleep,
-        sec: 10
+        sec: 20
       }
