@@ -1,50 +1,16 @@
 - name: "deploy docker"
   hosts: "{{ host }}"
   serial: 1
-  tasks:
-    - name: Get infos on container
-      docker_container_info:
-        name: "{{ docker_name }}"
-      register: result
-
-    - name: "Docker login"
-      docker_login:
-        registry_url: "harbor.ailabpte.co"
-        username: "jenkins"
-        password: "06ftJ0Ds"
-
-    - name: "Pull an image {{img}}"
-      docker_image:
-        name: "{{img}}"
-        source: pull
-
-    - name: "Stop docker container"
-      docker_container:
-        name: "{{ docker_name }}"
-        state: stopped
-      when: result.exists
-
-    - name: "Remove Docker container"
-      docker_container:
-        name: "{{ docker_name }}"
-        state: absent
-      when: result.exists
-
-    - name: "Run Docker {{img}}"
-      docker_container:
-        name: "{{ docker_name }}"
-        image: "{{img}}"
-        state: started
-        env:
-          ASPNETCORE_ENVIRONMENT: "{{env}}"
-          ServiceType: "{{service_type | default('API')}}"
-        ports: "{{ docker_ports | default([]) }}"
-        restart_policy: always
-        volumes:
-           - "{{ volume | default([]) }}"
-
-    - name: "Sleep for 20 seconds"
-      wait_for:
-        delay: 20
-        timeout: 0
-      when: (env == "Production") or (env == "Production.APP")
+  roles:
+      - {
+        role: deploy_docker,
+        docker_name: "{{docker_name}}",
+        docker_img: "{{image}}",
+        env: "{{env}}",
+        docker_ports: "{{docker_ports}}",
+        volume: "{{volume}}"
+      }
+      - {
+        role: sleep,
+        sec: 10
+      }
