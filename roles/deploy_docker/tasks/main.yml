@@ -3,8 +3,8 @@
 
 - name: Get docker container info
   docker_container_info:
-      name: "{{ docker_name }}"
-    register: result
+    name: "{{ docker_name }}"
+  register: result
 
 - name: Docker login
   docker_login:
