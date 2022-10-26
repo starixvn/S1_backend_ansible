@@ -41,9 +41,3 @@
     restart_policy: always
     volumes:
         - "{{ volume | default([]) }}"
-
-- name: "Sleep for 20 seconds"
-  wait_for:
-    delay: 20
-    timeout: 0
-  when: (env == "Production") or (env == "Production.APP")

@@ -1,0 +1,4 @@
+- name: "Sleep for {{sec}} seconds"
+  wait_for:
+    delay: {{sec}}
+    timeout: 0
