@@ -2,7 +2,7 @@
   include_vars: vars/{{env}}.yml
 
 - name: Get docker container info
-    docker_container_info:
+  docker_container_info:
       name: "{{ docker_name }}"
     register: result
 
