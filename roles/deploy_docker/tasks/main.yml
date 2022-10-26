@@ -1,0 +1,49 @@
+- name: include var
+  include_vars: vars/{{env}}.yml
+
+- name: Get docker container info
+    docker_container_info:
+      name: "{{ docker_name }}"
+    register: result
+
+- name: Docker login
+  docker_login:
+    registry_url: {{docker_registry}}
+    username: "jenkins"
+    password: "06ftJ0Ds"
+
+- name: "Pull image {{ docker_img }}"
+  docker_image:
+    name: "{{ docker_img }}"
+    source: pull
+
+- name: "Stop docker container"
+  docker_container:
+    name: "{{ docker_name }}"
+    state: stopped
+  when: result.exists
+
+- name: "Remove docker container"
+  docker_container:
+    name: "{{ docker_name }}"
+    state: absent
+  when: result.exists
+
+- name: "Run docker {{docker_img}}"
+  docker_container:
+    name: "{{ docker_name }}"
+    image: "{{ docker_img }}"
+    state: started
+    env:
+      ASPNETCORE_ENVIRONMENT: "{{env}}"
+      ServiceType: "{{service_type | default('API')}}"
+    ports: "{{ docker_ports | default([]) }}"
+    restart_policy: always
+    volumes:
+        - "{{ volume | default([]) }}"
+
+- name: "Sleep for 20 seconds"
+  wait_for:
+    delay: 20
+    timeout: 0
+  when: (env == "Production") or (env == "Production.APP")
