@@ -14,6 +14,8 @@ dev:
           ansible_host: 10.4.194.27
         MemberSite-03:
           ansible_host: 10.4.194.28
+        MemberSite-04:
+          ansible_host: 10.4.194.29
 
     MemberSiteApp:
       hosts:
