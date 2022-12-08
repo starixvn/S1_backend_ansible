@@ -43,3 +43,11 @@ scrape_configs:
       - targets: ["10.4.194.31:8080"]
         labels:
           group: '31'
+
+      - targets: ["10.4.194.37:8080"]
+        labels:
+          group: '37'
+
+      - targets: ["10.4.194.38:8080"]
+        labels:
+          group: '38'
