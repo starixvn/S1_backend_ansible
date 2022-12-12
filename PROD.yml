@@ -54,8 +54,10 @@ dev:
       hosts:
         PaymentService-01:
           ansible_host: 10.4.194.29
+          service_type: "Worker"
         PaymentService-02:
           ansible_host: 10.4.194.30
+          service_type: "API"
 
     SeamlessWallet:
       hosts:
