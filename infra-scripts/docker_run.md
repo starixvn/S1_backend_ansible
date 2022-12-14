@@ -12,7 +12,7 @@ sudo docker run -d -v /newvolume/nexus-data:/nexus-data -p 8081:8081 -p 8082:808
 
 # filebeat
 <pre><code>
-docker run -d -v /logs:/logs -v /usr/share/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml --user=root --name filebeat docker.elastic.co/beats/filebeat:7.15.2
+docker run -d -v /logs:/logs -v /usr/share/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml --user=root --restart always --name filebeat docker.elastic.co/beats/filebeat:7.15.2
 </code></pre>
 
 # nginx
@@ -29,6 +29,7 @@ sudo docker run \
   --volume=/var/lib/docker/:/var/lib/docker:ro \
   --publish=8080:8080 \
   --detach=true \
+  --restart always \
   --privileged=true \
   --name=cadvisor \
   gcr.io/cadvisor/cadvisor:v0.35.0
