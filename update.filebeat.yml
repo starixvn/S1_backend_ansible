@@ -21,12 +21,13 @@
         name: "filebeat"
         image: "docker.elastic.co/beats/filebeat:7.15.2"
         state: started
+        user: root
         volumes:
           - /logs:/logs 
           - /usr/share/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
         restart: yes
 
-    - name: "Sleep for 10 seconds"
+    - name: "Sleep for 20 seconds"
       wait_for:
-        delay: 10
+        delay: 20
         timeout: 0
