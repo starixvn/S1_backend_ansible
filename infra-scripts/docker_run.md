@@ -42,8 +42,7 @@ docker run -d -v /etc/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml -
 
 # grafana
 <pre><code>
-<strike>docker run -d -p 3000:3000 grafana/grafana</strike>
-docker run -d -p 3000:3000 grafana/grafana:8.2.5 `指定版本`
+docker run -d -p 3000:3000 grafana/grafana:8.2.5
 </code></pre>
 
 # redis
