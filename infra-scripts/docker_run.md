@@ -1,6 +1,10 @@
 # jenkins
 <pre><code>
+// dev
 docker run -d -v /newvolume/jenkins_home:/var/jenkins_home -p 8080:8080 -p 50000:50000 --name jenkins myjenkins:0.9
+
+// prd
+docker run -d -v jenkins_data:/var/jenkins_home -p 8080:8080 -p 50000:50000 --name jenkins jenkins:0.13
 </code></pre>
 
 # artifact
@@ -37,12 +41,12 @@ sudo docker run \
 
 # prometheus
 <pre><code>
-docker run -d -v /etc/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml -p 9090:9090 prom/prometheus
+docker run -d -v /etc/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml -p 9090:9090 --name prometheus --restart always prom/prometheus
 </code></pre>
 
 # grafana
 <pre><code>
-docker run -d -p 3000:3000 grafana/grafana:8.2.5
+docker run -d -p 3000:3000 --name grafana --restart always grafana/grafana:8.2.5
 </code></pre>
 
 # redis
