@@ -17,6 +17,9 @@ sudo docker run -d -v /newvolume/nexus-data:/nexus-data -p 8081:8081 -p 8082:808
 # filebeat
 <pre><code>
 docker run -d -v /logs:/logs -v /usr/share/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml --user=root --restart always --name filebeat docker.elastic.co/beats/filebeat:7.15.2
+
+`ecs-dev`
+docker run -d -v /data/logs:/logs -v /usr/share/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml --user=root --restart always --name filebeat docker.elastic.co/beats/filebeat:7.15.2
 </code></pre>
 
 # nginx
