@@ -141,6 +141,16 @@ filebeat.inputs:
   json.keys_under_root: true
   json.add_error_key: true
 
+- type: log
+  enabled: true
+  paths:
+    - E:\Nginx\nginx-1.18.0\nginx-1.18.0\logs\access*.log
+  fields:
+    es_index: dev-nginx
+    logtype: nginx
+  json.keys_under_root: true
+  json.add_error_key: true
+
 # ============================== Filebeat modules ==============================
 
 filebeat.config.modules:
