@@ -147,7 +147,7 @@ filebeat.inputs:
     - E:\Nginx\nginx-1.18.0\nginx-1.18.0\logs\access*.log
   fields:
     es_index: dev-nginx
-    logtype: nginx
+    logtype: info
   json.keys_under_root: true
   json.add_error_key: true
 
