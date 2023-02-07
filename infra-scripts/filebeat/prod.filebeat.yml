@@ -186,7 +186,7 @@ output.logstash:
   # index: "prod-payment"
   # Prod Porxy
   # proxy_use_local_resolver: true
-  proxy_url: socks5://10.4.194.104:1080
+  # proxy_url: socks5://10.4.194.104:1080
 
 # ================================= Processors =================================
 processors:
