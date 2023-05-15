@@ -5,6 +5,9 @@ docker run -d -v /newvolume/jenkins_home:/var/jenkins_home -p 8080:8080 -p 50000
 
 // prd
 docker run -d -v jenkins_data:/var/jenkins_home -p 8080:8080 -p 50000:50000 --name jenkins jenkins:0.13
+
+jenkins_data => /home/docker/volumes/jenkins_data/_data
+
 </code></pre>
 
 # artifact
