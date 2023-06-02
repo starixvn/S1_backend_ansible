@@ -55,6 +55,16 @@ filebeat.inputs:
 - type: log
   enabled: true
   paths:
+    - /logs/paymentWorker/*.log
+  fields:
+    es_index: dev-ecs-payment
+    logtype: paymentWorker
+  json.keys_under_root: true
+  json.add_error_key: true
+
+- type: log
+  enabled: true
+  paths:
    - /logs/settleworker/*.log
   fields:
     es_index: dev-ecs-settleworker
@@ -79,6 +89,16 @@ filebeat.inputs:
   fields:
     es_index: dev-ecs-tpservice
     logtype: tpservice
+  json.keys_under_root: true
+  json.add_error_key: true
+
+- type: log
+  enabled: true
+  paths:
+    - /logs/tpserviceWorker/*.log
+  fields:
+    es_index: dev-ecs-tpservice
+    logtype: tpserviceWorker
   json.keys_under_root: true
   json.add_error_key: true
 
@@ -115,20 +135,20 @@ filebeat.inputs:
 - type: log
   enabled: true
   paths:
-    - /logs/bethistory/*.log
+    - /logs/bonusWorker/*.log
   fields:
-    es_index: dev-ecs-bethistory
-    logtype: bethistory
+    es_index: dev-ecs-bonus
+    logtype: bonusWorker
   json.keys_under_root: true
   json.add_error_key: true
 
 - type: log
   enabled: true
   paths:
-    - /logs/statistic/*.log
+    - /logs/bethistory/*.log
   fields:
-    es_index: dev-ecs-statistic
-    logtype: statistic
+    es_index: dev-ecs-bethistory
+    logtype: bethistory
   json.keys_under_root: true
   json.add_error_key: true
 
