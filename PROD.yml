@@ -32,6 +32,8 @@ dev:
           ansible_host: 10.4.194.27
         Backend-03:
           ansible_host: 10.4.194.31
+      vars:
+        appsettings: /appsettings/backendsite/appsettings.Production.json:/app/appsettings.Production.json
 
     Config:
       hosts:
