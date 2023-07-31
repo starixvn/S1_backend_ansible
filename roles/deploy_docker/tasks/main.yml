@@ -41,3 +41,4 @@
     restart_policy: always
     volumes:
         - "{{ volume | default([]) }}"
+        - "{{ appsettings | default([]) }}"
