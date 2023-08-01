@@ -13,10 +13,10 @@
       docker_container:
         name: "{{ service }}"
         restart: yes
-      when: {{restart}}
+      when: {{ restart }}
 
     - name: "Sleep for 20 seconds"
       wait_for:
         delay: 20
         timeout: 0
-      when: {{restart}}
+      when: {{ restart }}
