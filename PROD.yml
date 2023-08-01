@@ -132,9 +132,9 @@ dev:
         StoreService-02:
           ansible_host: 10.4.194.31
 
-    StoreWorker:
+    StoreHangfireService:
       hosts:
-        StoreWorker-01:
+        StoreHangfireService-01:
           ansible_host: 10.4.194.31
 
     GeoIp:
