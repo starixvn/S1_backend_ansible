@@ -11,7 +11,7 @@
 
     - name: Restart container
       docker_container:
-        name: "{{ docker_name }}"
+        name: "{{ service }}"
         restart: yes
       when: {{restart}}
 
