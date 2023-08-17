@@ -16,10 +16,16 @@ dev:
           ansible_host: 10.4.194.28
         MemberSite-04:
           ansible_host: 10.4.194.29
+   
     MemberSite_Test:
       hosts:
         MemberSite-Test:
           ansible_host: 10.4.194.31
+    MemberSiteApp_Test:
+      hosts:
+        MemberSiteApp-Test:
+          ansible_host: 10.4.194.31
+
     MemberSiteApp:
       hosts:
         MemberSiteApp-01:
