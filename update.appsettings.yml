@@ -8,15 +8,3 @@
         dest: /appsettings/{{service}}/appsettings.{{env}}.json
         force: yes
       become: true
-
-    - name: Restart container
-      docker_container:
-        name: "{{ docker_name }}"
-        restart: yes
-      when: {{restart}}
-
-    - name: "Sleep for 20 seconds"
-      wait_for:
-        delay: 20
-        timeout: 0
-      when: {{restart}}
