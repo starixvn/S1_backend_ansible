@@ -76,3 +76,8 @@ sudo docker run -v /etc/redis/redis_replica.conf:/etc/redis/redis_replica.conf -
 sudo docker run -v /home/centos/sentinel1_conf:/sentinel_conf --name redis-sentinel1 -p 26381:26381 -d redis:6.2.6 redis-server /sentinel_conf/redis_sentinel.conf --sentinel
 sudo docker run -v /etc/redis/sentinel_conf:/sentinel_conf --name redis-sentinel1 -p 26381:26381 -d redis:6.2.6 redis-server /sentinel_conf/redis_sentinel.conf --sentinel
 </code></pre>
+
+# SonarQube
+<pre><code>
+docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube:lts
+</code></pre>
