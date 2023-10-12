@@ -81,3 +81,15 @@ sudo docker run -v /etc/redis/sentinel_conf:/sentinel_conf --name redis-sentinel
 <pre><code>
 docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube:lts
 </code></pre>
+
+# APM
+<pre><code>
+sudo docker run -d \
+  -p 8200:8200 \
+  --name=apm-server \
+  --user=apm-server \
+  --volume="$(pwd)/apm-server.docker.yml:/usr/share/apm-server/apm-server.yml:ro" \
+  docker.elastic.co/apm/apm-server:7.17.11 \
+  --strict.perms=false -e \
+  -E output.elasticsearch.hosts=["172.31.48.203:9200"]
+</code></pre>
