@@ -43,8 +43,6 @@ dev:
           ansible_host: 10.4.194.30
         BackendSite-04:
           ansible_host: 10.4.194.31
-      vars:
-        appsettings: /appsettings/backendsite/appsettings.Production.json:/app/appsettings.Production.json
 
     ConfigService:
       hosts:
