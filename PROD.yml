@@ -48,6 +48,9 @@ dev:
       hosts:
         ConfigService-01:
           ansible_host: 10.4.194.27
+          
+    ConfigService-Main:
+      hosts:
         ConfigService-02:
           ansible_host: 10.4.194.29
 
