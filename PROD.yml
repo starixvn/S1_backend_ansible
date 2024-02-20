@@ -58,11 +58,13 @@ dev:
       hosts:
         Hangfire-01:
           ansible_host: 10.4.194.30
+          service_type: "Worker"
 
     SettleWorker:
       hosts:
         SettleWorker-01:
           ansible_host: 10.4.194.28
+          service_type: "Worker"
 
     PaymentService:
       hosts:
@@ -106,6 +108,7 @@ dev:
       hosts:
         BetHistory-01:
           ansible_host: 10.4.194.31
+          service_type: "Worker"
 
     CommonService:
       hosts:
@@ -148,6 +151,7 @@ dev:
       hosts:
         StoreHangfireService-01:
           ansible_host: 10.4.194.31
+          service_type: "Worker"
 
     GeoIp:
       hosts:
