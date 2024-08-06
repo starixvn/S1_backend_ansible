@@ -4,6 +4,6 @@
   tasks:
     - name: Copy file to remote server
       copy:
-        src: /var/jenkins_home/workspace/HAProxy/infra-scripts/HAProxy/DEV/HAproxy.cfg   # 本地文件的路径
-        dest: "{{ dest_path }}/HAproxy.cfg"  # 使用 inventory 中定义的变量
+        src: /var/jenkins_home/workspace/HAProxy/infra-scripts/HAProxy/DEV/haproxy.cfg   # 本地文件的路径
+        dest: "{{ dest_path }}/haproxy.cfg"  # 使用 inventory 中定义的变量
         #mode: '0644'   # 设置目标文件的权限（可选）
