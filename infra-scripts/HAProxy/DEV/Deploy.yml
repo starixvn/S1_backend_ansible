@@ -1,5 +1,6 @@
 - name: Deploy files to Backend servers
   hosts: Backend-01
+  become: yes  # 如果需要提权操作（如 root 权限），可以启用此选项
   tasks:
     - name: Copy file to remote server
       copy:
