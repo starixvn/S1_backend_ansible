@@ -1,8 +1,8 @@
 dev:
   vars:
     ansible_ssh_port: 22
-    ansible_password: "D!S@RfyoyHI;7IJKqLK7DviAE8DRfVqw"
-    ansible_ssh_user: "Administrator"
+    ansible_password: "Welcome1!"
+    ansible_ssh_user: "jenkins"
   children:
     Backend:
       hosts:
