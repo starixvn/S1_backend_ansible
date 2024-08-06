@@ -3,6 +3,7 @@ dev:
     ansible_ssh_port: 22
     ansible_password: "Welcome1!"
     ansible_ssh_user: "jenkins"
+    ansible_become_password: "Welcome1!"  # 添加这一行
     ansible_ssh_common_args: '-o StrictHostKeyChecking=no'  # 添加这一行
   children:
     Backend:
